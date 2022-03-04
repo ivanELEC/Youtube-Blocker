@@ -6,8 +6,11 @@
 	  "service_worker": "background.js"
 	},
 	"permissions":["storage"],
-	"action": {}, 
+	"action": {
+		"default_popup":"main_ui.html"
+	}, 
 	"content_scripts":[{
-		"matches":["https://youtube.com/*"]
+		"matches":["https://youtube.com/*"],
+		"js":["block_accounts.js"]
 	}]
   }
