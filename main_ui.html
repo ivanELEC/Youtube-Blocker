@@ -1,8 +1,43 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
   <head>
-  </head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- import bootstrap and custome css-->
+	<link rel="stylesheet" href="css/main_ui.css">
+	<link rel="stylesheet" href="css/bootstrap.css">
+	<link rel="stylesheet" href="css/bootstrap-grid.css">
+	<link rel="stylesheet" href="css/bootstrap-reboot.css">
+	<!-- import jQuery (for Bootstrap) -->
+	<script src="js/jquery-3.6.0.min.js"></script>
+</head>
   <body>
-    <script src="block_accounts.js"></script>
+	<!-- import javascript for Bootstrap  -->
+	<script src="js/bootstrap.bundle.min.js"></script>
+	
+	<!-- import custom functions for blocking YT accounts -->
+	<script src="js/block_accounts.js"></script>
+
+	<div class="container">
+		<form>
+			<div id="ytb-block-form" class="mb-3">
+			<label for="input-account" class="form-label">YouTube Account Name</label>
+			<input type="text" class="form-control" id="input-account" aria-describedby="youtube-input-help">
+			<div id="youtube-input-help" class="form-text">This account will be filtered from your YouTube searches</div>
+			</div>
+			<button type="submit" class="btn btn-primary">Add</button>
+		</form>
+	</div>
+	<div class="container">
+		<div class="dropdown">
+			<button class="btn btn-primary dropdown-toggle" type="button" id="block-list-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
+				View blocked accounts
+			</button>
+			<ul class="dropdown-menu" aria-labelledby="block-list-dropdown">
+			<li><a class="dropdown-item" href="#">Action</a></li>
+			<li><a class="dropdown-item" href="#">Another action</a></li>
+			<li><a class="dropdown-item" href="#">Something else here</a></li>
+			</ul>
+		</div>
+	</div>  
   </body>
 </html>
