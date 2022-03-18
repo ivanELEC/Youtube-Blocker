@@ -2,42 +2,36 @@
 <html lang="en">
   <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- import bootstrap and custome css-->
+	<!-- import custom css-->
 	<link rel="stylesheet" href="css/main_ui.css">
-	<link rel="stylesheet" href="css/bootstrap.css">
-	<link rel="stylesheet" href="css/bootstrap-grid.css">
-	<link rel="stylesheet" href="css/bootstrap-reboot.css">
-	<!-- import jQuery (for Bootstrap) -->
-	<script src="js/jquery-3.6.0.min.js"></script>
+	<!--Import materialize.css-->
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 </head>
   <body>
-	<!-- import javascript for Bootstrap  -->
-	<script src="js/bootstrap.bundle.min.js"></script>
-	
-	<!-- import custom functions for blocking YT accounts -->
-	<script src="js/block_accounts.js"></script>
-
 	<div class="container">
-		<form>
-			<div id="ytb-block-form" class="mb-3">
-			<label for="input-account" class="form-label">YouTube Account Name</label>
-			<input type="text" class="form-control" id="input-account" aria-describedby="youtube-input-help">
-			<div id="youtube-input-help" class="form-text">This account will be filtered from your YouTube searches</div>
-			</div>
-			<button type="submit" class="btn btn-primary">Add</button>
-		</form>
-	</div>
-	<div class="container">
-		<div class="dropdown">
-			<button class="btn btn-primary dropdown-toggle" type="button" id="block-list-dropdown" data-bs-toggle="dropdown" aria-expanded="false">
-				View blocked accounts
-			</button>
-			<ul class="dropdown-menu" aria-labelledby="block-list-dropdown">
-			<li><a class="dropdown-item" href="#">Action</a></li>
-			<li><a class="dropdown-item" href="#">Another action</a></li>
-			<li><a class="dropdown-item" href="#">Something else here</a></li>
+		<div class="row" id="youtube-account-block-form">
+			<form>
+				<div class="input-field">
+					<input placeholder="Please input name of account you want to block" id="block_account_name" type="text" class="validate">
+					<label for="block_account_name">Account</label>
+				</div>
+				<button type="submit"class="waves-effect waves-light btn">Add</button>
+			</form>
+		</div>
+		<div class="row" id="youtube-account-block-list">
+			<a class='dropdown-trigger btn' href='#' data-target='accounts-dropdown'>View Blocklist</a>
+			<!-- Dropdown Structure -->
+			<ul id='accounts-dropdown' class='dropdown-content'>
+				<li><a href="#!">one</a></li>
+				<li><a href="#!">two</a></li>
 			</ul>
 		</div>
-	</div>  
+	</div>
+	<!-- import custom functions for blocking YT accounts -->
+	<script  type="text/javascript" src="js/block_accounts.js"></script>
+	<!-- import materialize.js -->
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<!-- import helper functions -->
+	<script type="text/javascript" src="js/helpers/materialize.js"></script>
   </body>
 </html>
