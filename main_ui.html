@@ -15,18 +15,23 @@
 					<input placeholder="Please input name of account you want to block" id="block_account_name" type="text" class="validate">
 					<label for="block_account_name">Account</label>
 				</div>
-				<button type="submit"class="waves-effect waves-light btn">Add</button>
+				<button type="submit"class="waves-effect waves-light btn" onClick="submitAccount()" id="block_add_button">Add</button>
 			</form>
 		</div>
 		<div class="row" id="youtube-account-block-list">
 			<a class='dropdown-trigger btn' href='#' data-target='accounts-dropdown'>View Blocklist</a>
 			<!-- Dropdown Structure -->
 			<ul id='accounts-dropdown' class='dropdown-content'>
-				<li><a href="#!">one</a></li>
-				<li><a href="#!">two</a></li>
 			</ul>
 		</div>
 	</div>
+	<!-- templates -->
+	<!-- list item for block list dropdown -->
+	<template id="dropdown-li">
+		<li>
+			<a href="#!"></a>
+		</li>
+	</template>
 	<!-- import custom functions for blocking YT accounts -->
 	<script  type="text/javascript" src="js/block_accounts.js"></script>
 	<!-- import materialize.js -->
