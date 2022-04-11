@@ -22,8 +22,19 @@ function updateDropdownList(accountName){
 	dropdownElem.appendChild(clone);
 }
 
+function updateStorage(accountName){
+	chrome.storage.sync.get("block_list", ({block_list}) => {
+		block_list.push(accountName)
+		chrome.storage.sync.set({'block_list':block_list}, function(){
+			console.log('block_list is:');
+			console.log(block_list);
+		})
+	})
+}
+
 function submitAccount(){
 	//get account name from input 
 	var inputVal = document.getElementById('block_account_name').value;
 	updateDropdownList(inputVal);
+	updateStorage(inputVal);
 }
