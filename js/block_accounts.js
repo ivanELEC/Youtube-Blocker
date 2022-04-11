@@ -1,9 +1,16 @@
 //event listeners
 window.addEventListener('DOMContentLoaded', function(){
+	//handle account submission with add button
 	var addButtonElem = document.getElementById('block_add_button');
-	//handle account submission
 	addButtonElem.addEventListener('click', function(){
 		submitAccount();
+	});
+
+	//populate account dropdown list
+	chrome.storage.sync.get("block_list", ({block_list}) => {
+		for(i=0; i<block_list.length; i++){
+			updateDropdownList(block_list[i]);
+		}
 	});
 })
 
