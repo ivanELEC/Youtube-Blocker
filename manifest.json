@@ -5,8 +5,15 @@
 	"background": {
 	  "service_worker": "js/background.js"
 	},
-	"permissions":["storage"],
+	"permissions":["storage", "scripting"],
 	"action": {
 		"default_popup":"main_ui.html"
-	}
+	},
+	"content_scripts":[
+		{
+			"matches":["https://www.youtube.com/*","https://m.youtube.com/*"],
+			"js": ["js/content_scripts/block_accounts.js"],
+			"run_at":"document_end"
+		}
+	]
   }
