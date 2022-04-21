@@ -23,7 +23,7 @@ function updateDropdownList(accountName){
 	var clone = listItemTemplate.content.cloneNode(true);
 
 	//set account name in list item
-	var cloneLinkNode = clone.querySelectorAll('a');
+	var cloneLinkNode = clone.querySelectorAll('#item-content');
 	cloneLinkNode = cloneLinkNode[0];
 	cloneLinkNode.innerText = accountName;
 

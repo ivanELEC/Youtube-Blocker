@@ -6,6 +6,8 @@
 	<link rel="stylesheet" href="css/main_ui.css">
 	<!--Import materialize.css-->
 	<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+	<!--import material icons-->
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
   <body>
 	<div class="container">
@@ -28,8 +30,9 @@
 	<!-- templates -->
 	<!-- list item for block list dropdown -->
 	<template id="dropdown-li">
-		<li>
-			<a href="#!"></a>
+		<li id="dropdown-li-item">
+			<i id="delete-icon" class="material-icons">delete</i>
+			<a id="item-content" href="#!"></a>
 		</li>
 	</template>
 	<!-- import custom functions for blocking YT accounts -->

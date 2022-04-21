@@ -7,3 +7,15 @@ body{
 .dropdown-trigger{
 	min-width:250px;
 }
+
+#dropdown-li-item{
+	position: relative;
+}
+
+#delete-icon{
+	position: absolute;
+	right: 15px;
+	top: 15px;
+	font-size: 19px;
+	color: darkred;
+}
