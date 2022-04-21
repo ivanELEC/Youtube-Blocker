@@ -6,8 +6,11 @@ window.addEventListener('DOMContentLoaded', function(){
 		submitAccount();
 	});
 
-	//populate account dropdown list
+	//populate account dropdown list in alphabetic order
 	chrome.storage.sync.get("block_list", ({block_list}) => {
+		block_list.sort((a, b) => {
+			return a.localeCompare(b, 'en', { sensitivity: 'base' });
+		});
 		for(i=0; i<block_list.length; i++){
 			updateDropdownList(block_list[i]);
 		}
