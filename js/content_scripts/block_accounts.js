@@ -5,11 +5,20 @@ chrome.storage.sync.get("block_list", ({block_list}) => {
 	//setup mutation observer to check for changes in child elements of contents
 	const observerConfig = {attributes: false, childList: true, subtree: true};
 	
-	//function for applying filter anytime child node added
+	/*function for applying filter anytime:
+	 child node added
+	 child node is of className for grid row of content
+	*/
 	const callback = function(mutationsList, observer){
 		for(const mutation of mutationsList){
 			if(mutation.type === 'childList'){
-				filterVideosInHome(block_list);
+				if(mutation.addedNodes.length > 0){
+					var addedNode = mutation.addedNodes[0];
+					if(addedNode.className === 'style-scope ytd-rich-item-renderer'){
+						console.log(addedNode);
+						filterVideosInHome(block_list);
+					}
+				}
 			}
 		}
 	}
@@ -29,11 +38,10 @@ function filterVideosInHome(account_list){
 		contains the video and thumbnail
 	*/
 	for(let i=0; i < channels.length; i++){
-		let parent = getParentContentElementHome(channels[i]);
+		let parent = getParentContentElementHome(channels[i], '#content');
 		parent.remove();
 	}
 }
-
 
 //function to select all title elements that have list of channels
 function getChannelNameDivsHome(account_list){
@@ -55,8 +63,8 @@ function getChannelNameDivsHome(account_list){
 }
 
 //function to select nth parent of element where id=content
-function getParentContentElementHome(element){
+function getParentContentElementHome(element, elementSelector){
 	//loop up parent elements until condition is met
-	let parentElement = element.closest("#content");
+	let parentElement = element.closest(elementSelector);
 	return parentElement
 }
